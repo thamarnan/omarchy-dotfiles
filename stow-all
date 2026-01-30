@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+cd "$(dirname "$0")" || exit
+
+stow_packages=(
+  starship
+  git
+  nvim
+  zsh
+  # …
+)
+
+for pkg in "${stow_packages[@]}"; do
+  stow -v "$pkg" || echo "Failed to stow $pkg"
+done
